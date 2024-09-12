@@ -33,7 +33,7 @@ sdk = new StarnetDataNode(secret)
 sdk.eventRegistry.identify(profileData)
 ```
 
-Interface for `profileData` above:
+Interface for `profileData` above. Data considered PII is hashed by the SDK:
 ``` javascript
 interface ProfileData {
   uniqueId: string;
