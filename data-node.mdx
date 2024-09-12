@@ -1,0 +1,90 @@
+---
+title: 'Running a data node'
+description: 'Start contributing to the Starnet network.'
+---
+
+## What is a data node?
+
+## How do I earn $UA?
+
+## Javascript SDK
+Here's how to send your first `identify` event. This can be sent on sign up or from an existing database of users.
+``` javascript
+import StarnetDataNode from '@starnet-platform/starnet-data-node'; 
+
+secret = env.process.DATA_NODE_SECRET // provided by Starnet
+sdk = new StarnetDataNode(secret)
+
+sdk.eventRegistry.identify(profileData)
+```
+
+Interface for `profileData` above:
+``` javascript
+interface ProfileData {
+  uniqueId: string;
+  demographic: DemographicData;
+  social: SocialIdentifers;
+  device: DeviceData;
+  interest: string[];
+}
+```
+
+Full interface expansion:
+``` javascript
+interface DemographicData {
+  age?: number;
+  gender?: string;
+  location?: string;
+  language?: string[];
+  incomeLevel?: string;
+  educationLevel?: string;
+  occupation?: string;
+  maritalStatus?: string;
+  familySize?: number;
+  ethnicity?: string;
+  residentialStatus?: string;
+}
+
+interface SocialIdentifiers {
+  twitterId?: string;
+  discordId?: string;
+  telegramId?: string;
+  farcasterId?: string;
+  youtubeId?: string;
+  facebookId?: string;
+  linkedInId?: string;
+  instagramId?: string;
+  githubId?: string;
+  spotifyId?: string;
+  tikTokId?: string;
+  snapChatId?: string;
+  twitchId?: string;
+  weChatId?: string;
+  lineId?: string;
+  whatsAppId?: string;
+  email?: string;
+  phoneNumber?: string;
+  appleId?: string;
+  googleId?: string;
+  telegramId?: string;
+  discordId?: string;
+  whatsappId?: string;
+  twitterId?: string; 
+}
+
+interface DeviceData {
+  ipAddress?: string;
+  deviceId?: string;
+  userAgent?: string;
+  deviceType?: string;
+  operatingSystem?: string;
+  browserType?: string;
+  networkType?: string;
+  cookieId?: string;
+  locationTracking?: boolean;
+  deviceFingerprint?: string;
+  walletAddress?: string[]; // EVM, SOL, etc
+}
+```
+
+
