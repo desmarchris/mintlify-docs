@@ -37,7 +37,6 @@ Interface for `profileData` above. Data considered PII is hashed by the SDK:
 ``` javascript
 interface ProfileData {
   uniqueId: string;
-  demographic: DemographicData;
   social: SocialIdentifers;
   device: DeviceData;
   interest: string[];
@@ -46,20 +45,6 @@ interface ProfileData {
 
 Full interface expansion:
 ``` javascript
-interface DemographicData {
-  age?: number;
-  gender?: string;
-  location?: string;
-  language?: string[];
-  incomeLevel?: string;
-  educationLevel?: string;
-  occupation?: string;
-  maritalStatus?: string;
-  familySize?: number;
-  ethnicity?: string;
-  residentialStatus?: string;
-}
-
 interface SocialIdentifiers {
   twitterId?: string;
   discordId?: string;
