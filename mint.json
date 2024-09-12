@@ -8,9 +8,9 @@
   "favicon": "/favicon.svg",
   "theme": "prism",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#5D3DE1",
+    "light": "#896DFC",
+    "dark": "#5D3DE1",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
