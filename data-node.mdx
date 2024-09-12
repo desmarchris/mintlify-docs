@@ -23,6 +23,18 @@ After Dawn, variable contribution rates will be introduced awarding additional $
 usefulness of the contributions.
 
 ## Javascript SDK
+The Starnet Data Node SDK allows applications to contribute event and profile data to the Starnet network.
+The first supported event is the `IdentifyEvent` sent anytime new information is learned about a user.
+
+Other events coming soon:
+- login
+- register
+- purchase
+- level reached
+- tutorial completed
+- invite
+- share
+
 Here's how to send your first `identify` event. This can be sent on sign up or from an existing database of users.
 ``` javascript
 import StarnetDataNode from '@starnet-platform/starnet-data-node'; 
@@ -33,9 +45,9 @@ sdk = new StarnetDataNode(secret)
 sdk.eventRegistry.identify(profileData)
 ```
 
-Interface for `profileData` above. Data considered PII is hashed by the SDK:
+Interface for `IdentifyEvent` above. Data considered PII is hashed by the SDK:
 ``` javascript
-interface ProfileData {
+interface IdentifyEvent {
   uniqueId: string;
   social: SocialIdentifers;
   device: DeviceData;
@@ -43,7 +55,7 @@ interface ProfileData {
 }
 ```
 
-Full interface expansion:
+Full `IdentifyEvent` interface expansion:
 ``` javascript
 interface SocialIdentifiers {
   twitterId?: string;
