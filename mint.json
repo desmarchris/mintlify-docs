@@ -22,10 +22,6 @@
       "url": "mailto:chris@starnet.io"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Explorer",
-    "url": "https://testnet.explorer.starnet.io"
-  },
   "tabs": [],
   "anchors": [],
   "navigation": [
