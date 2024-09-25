@@ -37,26 +37,40 @@ Other events coming soon:
 
 Here's how to send your first `identify` event. This can be sent on sign up or from an existing database of users.
 ``` javascript
-import StarnetDataNode from '@starnet-platform/starnet-data-node'; 
+// Initializing the SDK with the provided secret
+const sdk = new StarnetDataCloud(secret: string);
 
-secret = env.process.DATA_NODE_SECRET // provided by Starnet
-sdk = new StarnetDataNode(secret)
+// create ProfileData object
+const profileData: ProfileData = {
+  uniqueId: '12345',
+  demographic: { age: 30, gender: 'male' },
+  social: { twitterId: '@example' },
+  device: { deviceId: 'device123', ipAddress: '192.168.1.1' },
+  interest: ['gaming', 'tech']
+};
 
-sdk.eventRegistry.identify(profileData)
+// send identify event
+await sdk.eventRegistry.identify(profileData)
+  .then(response => console.log('Event logged successfully:', response))
+  .catch(err => console.error('Error logging event:', err));
 ```
 
-Interface for `IdentifyEvent` above. Data considered PII is hashed by the SDK:
+Here's the full data structure for `ProfileData`. Data considered PII is hashed by the SDK:
 ``` javascript
-interface IdentifyEvent {
-  uniqueId: string;
-  social: SocialIdentifers;
-  device: DeviceData;
-  interest: string[];
+interface DemographicData {
+  age?: number;
+  gender?: string;
+  location?: string;
+  language?: string[];
+  incomeLevel?: string;
+  educationLevel?: string;
+  occupation?: string;
+  maritalStatus?: string;
+  familySize?: number;
+  ethnicity?: string;
+  residentialStatus?: string;
 }
-```
 
-Full `IdentifyEvent` interface expansion:
-``` javascript
 interface SocialIdentifiers {
   twitterId?: string;
   discordId?: string;
@@ -96,6 +110,14 @@ interface DeviceData {
   locationTracking?: boolean;
   deviceFingerprint?: string;
   walletAddress?: string[]; // EVM, SOL, etc
+}
+
+interface ProfileData {
+  uniqueId: string;
+  demographic: DemographicData;
+  social: SocialIdentifers;
+  device: DeviceData;
+  interest: string[];
 }
 ```
 
